@@ -7,8 +7,8 @@
 -----
 ## Comandos Sólo una Vez:
 ```bash
-git config --global user.email  “your_email@example.io”
-git config --global user.name “your_name”
+git config --global user.email  "your_email@example.io"
+git config --global user.name "your_name"
 ```
 
 ## Comandos iniciales de GIT
