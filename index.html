@@ -5,49 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Web</title>
     <style>
-        *{
-            padding: 0;
+        /* Reset básico */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1{
-            color: blue;
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f4f4f4 60%, #e6b980 100%);
+            min-height: 100vh;
+            color: #2d2d2d;
         }
-        header{
+
+        h1 {
+            color: #4f2d7f;
+            font-size: 2.2em;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5em;
+        }
+
+        header {
             width: 100%;
             height: 100px;
-            background-color: blueviolet;
+            background: linear-gradient(90deg, #4f2d7f 70%, #6ad1c8 100%);
             float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-        .menu{
+
+        /* --- NAV STYLES --- */
+        nav.menu {
             width: 100%;
-            height: 50px;
-            background-color: aquamarine;
-            text-align: center;
-            float: left;
+            min-height: 60px;
+            background: linear-gradient(90deg, #4f2d7f 60%, #6ad1c8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
         }
-        aside{
+
+        nav.menu a {
+            color: #fff;
+            background: rgba(0,0,0,0.08);
+            text-decoration: none;
+            padding: 0.7em 1.5em;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            outline: none;
+        }
+
+        nav.menu a:hover,
+        nav.menu a:focus {
+            background: #fff;
+            color: #4f2d7f;
+            box-shadow: 0 2px 8px rgba(106,209,200,0.15);
+        }
+
+        nav.menu a:active {
+            background: #6ad1c8;
+            color: #fff;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 700px) {
+            nav.menu {
+                flex-direction: column;
+                gap: 0.5rem;
+                min-height: 40px;
+                padding: 0.5em 0;
+            }
+            nav.menu a {
+                font-size: 1em;
+                padding: 0.5em 1em;
+            }
+        }
+
+        /* Foco visible para accesibilidad */
+        nav.menu a:focus {
+            outline: 2px solid #6ad1c8;
+            outline-offset: 2px;
+        }
+
+        /* --- FIN NAV STYLES --- */
+
+        /* --- ASIDE STYLES --- */
+        aside {
             width: 25%;
             height: 500px;
-            background-color: burlywood;
+            background: linear-gradient(135deg, #f7d9a8 60%, #e6b980 100%);
             float: left;
+            padding: 2em 1.5em;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            border-radius: 24px 0 0 24px;
+            color: #4b2e09;
+            font-size: 1.12em;
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            border-left: 6px solid #e6b980;
+            border-top: 2px solid #f7d9a8;
+            position: relative;
         }
-        #principal{
+        aside::before {
+            content: "📝";
+            position: absolute;
+            top: 1.2em;
+            left: 1em;
+            font-size: 2em;
+            opacity: 0.25;
+        }
+        aside p {
+            margin-bottom: 1.2em;
+        }
+        /* --- FIN ASIDE STYLES --- */
+
+        #principal {
             width: 50%;
             height: 500px;
-            background-color: beige;
+            background: linear-gradient(135deg, #f4f4f4 60%, #e6b980 100%);
             float: left;
+            padding: 2em 2em 2em 2em;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            font-size: 1.15em;
         }
-        article{
+        article {
             width: 25%;
             height: 500px;
-            background-color: blueviolet;
+            background: linear-gradient(135deg, #6ad1c8 60%, #4f2d7f 100%);
             float: left;
+            padding: 2em 1em;
+            border-radius: 0 18px 18px 0;
+            color: #fff;
+            font-size: 1.08em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
-        footer{
+        article ul {
+            list-style: none;
+            padding: 0;
+        }
+        article li {
+            background: rgba(255,255,255,0.12);
+            margin-bottom: 0.7em;
+            padding: 0.6em 1em;
+            border-radius: 12px;
+            font-weight: 500;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        }
+        footer {
             width: 100%;
-            height: 100px;
-            background-color: chocolate;
+            min-height: 120px;
+            background: linear-gradient(90deg, #6ad1c8 60%, #4f2d7f 100%);
             float: left;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05em;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+            padding: 1.5em 0;
+        }
+        .footer-info {
+            margin-top: 0.7em;
+            font-size: 0.98em;
+            opacity: 0.85;
+        }
+        .footer-social {
+            margin-top: 1em;
+            display: flex;
+            gap: 1.2em;
+        }
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover {
+            color: #e6b980;
         }
     </style>
 </head>
@@ -62,9 +207,7 @@
         <a href="">CONTACTOS</a>
     </nav>
     <aside>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae dicta laboriosam sapiente iste deserunt nulla soluta vero, nostrum amet obcaecati non rem porro quasi culpa quam eaque? Accusamus, sit enim!
-        Nostrum a earum animi voluptate, inventore ad iste assumenda, reprehenderit obcaecati sunt praesentium ipsa in nam aut deleniti. Dolores dicta delectus officia cumque commodi esse. Et sapiente explicabo corrupti omnis?
-        Aut voluptates dolorum temporibus ea eius doloribus saepe, asperiores veritatis, soluta dolore facilis quo adipisci molestiae nihil magni rem, alias nostrum totam! Dolorem facilis, provident obcaecati ipsa voluptates beatae adipisci.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae dicta laboriosam sapiente iste deserunt nulla sosci molestiae nihil magni rem, alias nostrum totam! Dolorem facilis, provident obcaecati ipsa voluptates beatae adipisci.
         Harum recusandae labore ipsam ut quis vel reiciendis fugiat consequuntur impedit, aspernatur, molestias sed repudiandae quidem neque consectetur quo illum quibusdam totam. Ea corrupti deleniti, perspiciatis sunt similique iste labore.
     </aside>
     <section id="principal">
@@ -80,7 +223,17 @@
         </ul>
     </article>
     <footer>
-        &copy; Derechos reservados
+        <div>&copy; Derechos reservados 2025 | Mi Empresa</div>
+        <div class="footer-info">
+            Desarrollado por Luis Medina &mdash; Taller FullStack Tutorial<br>
+            Contacto: contacto@miempresa.com | Tel: +54 11 1234-5678
+        </div>
+        <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" title="Facebook">&#x1F426;</a>
+            <a href="https://twitter.com" target="_blank" title="Twitter">&#x1F426;</a>
+            <a href="https://instagram.com" target="_blank" title="Instagram">&#x1F33F;</a>
+            <a href="mailto:contacto@miempresa.com" title="Email">&#x2709;&#xFE0F;</a>
+        </div>
     </footer>    
 </body>
 </html>
