@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Mi Página Web</title>
     <style>
         *{
@@ -55,11 +56,14 @@
     <header>
         <h1 style="color: #FF0000">Mi Empresa</h1>
     </header>
-    <nav class="menu">
-        <a href="">INICIO</a>
-        <a href="">NOSOTROS</a>
-        <a href="">GALERIA</a>
-        <a href="">CONTACTOS</a>
+    <nav class="">
+         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">INICIO</a></li>
+            <li><a href="#">NOSOTROS</a></li>
+            <li><a href="#">GALERIA</a></li>
+            <li><a href="#">CONTACTOS</a></li>
+        </ul>
     </nav>
     <aside>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae dicta laboriosam sapiente iste deserunt nulla soluta vero, nostrum amet obcaecati non rem porro quasi culpa quam eaque? Accusamus, sit enim!
@@ -81,6 +85,13 @@
     </article>
     <footer>
         &copy; Derechos reservados
-    </footer>    
+    </footer>  
+    
+    
+    <script>
+        function toggleMenu(){
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
